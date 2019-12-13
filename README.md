@@ -1,0 +1,1 @@
+This code represents my experiments in testing JSON serialisation and deserialisation in an ASP.NET WebAPI. To see my written thoughts regarding this then check out my blog post : [ASP.NET Web Api Complex Model Binding and Validation](https://blog.philiphendry.me.uk/2019/12/07/asp-net-web-api-complex-model-binding-and-valiation).
