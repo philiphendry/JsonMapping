@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Web.Mvc;
 using Newtonsoft.Json;
@@ -51,24 +50,5 @@ namespace JsonMapping.Serialisation
         }
 
 
-    }
-
-    public class PiecewiseNamingStrategy : NamingStrategy
-    {
-        readonly NamingStrategy baseStrategy;
-
-        public PiecewiseNamingStrategy(NamingStrategy baseStrategy)
-        {
-            if (baseStrategy == null)
-                throw new ArgumentNullException();
-            this.baseStrategy = baseStrategy;
-        }
-
-        protected override string ResolvePropertyName(string name)
-        {
-            var resolvePropertyName = String.Join(".", name.Split('.').Select(n => baseStrategy.GetPropertyName(n, false)));
-            Debug.WriteLine($"{name} becomes {resolvePropertyName}");
-            return resolvePropertyName;
-        }
     }
 }

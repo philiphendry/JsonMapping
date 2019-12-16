@@ -5,11 +5,13 @@ using System.Web.Mvc;
 
 namespace JsonMapping.Models
 {
-    public class Person
+    public class Person : IValidatableObject
     {
         [Required]
         [StringLength(10)]
         public string Name { get; set; }
+
+        public Address Address { get; set; }
 
         [Range(0, 150)]
         public int Age { get; set; }
@@ -27,29 +29,13 @@ namespace JsonMapping.Models
 
         [AllowHtml]
         public string Description { get; set; }
-    }
 
-    public interface ISport
-    {
-        string Name { get; }
-    }
-
-    public class Squash : ISport
-    {
-        public string Name => "Squash";
-        public string CourtName { get; set; }
-    }
-
-    public class Football : ISport
-    {
-        public string Name => "Football";
-        public string PitchName { get; set; }
-    }
-
-    public enum Colours
-    {
-        Red,
-        Green, 
-        Blue
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            return new ValidationResult[]
+            {
+                new ValidationResult("There is an error", new string[] {"FavouriteSport"})
+            };
+        }
     }
 }

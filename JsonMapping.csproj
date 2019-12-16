@@ -115,8 +115,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Colours.cs" />
+    <Compile Include="Models\Football.cs" />
+    <Compile Include="Models\ISport.cs" />
+    <Compile Include="Models\Squash.cs" />
     <Compile Include="Serialisation\HtmlSanitisingValueProvider.cs" />
     <Compile Include="Serialisation\HtmlSanitisingContractResolver.cs" />
+    <Compile Include="Serialisation\PiecewiseNamingStrategy.cs" />
     <Compile Include="Serialisation\SportConverter.cs" />
     <Compile Include="Serialisation\JsonCreationConverter.cs" />
     <Compile Include="Models\Person.cs" />
